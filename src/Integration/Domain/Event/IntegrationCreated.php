@@ -8,6 +8,5 @@ class IntegrationCreated implements Event
 {
     public function __construct()
     {
-        
     }
 }

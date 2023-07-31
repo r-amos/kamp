@@ -7,10 +7,9 @@ namespace Kamp\Integration\Domain\ValueObject;
 use Kamp\Common\Domain\ValueObject;
 
 class ClientIdentifier extends ValueObject
-{    
-    public function __construct(private string $identifier)
+{
+    public function __construct(private readonly string $identifier)
     {
-        $this->identifier = $identifier;
     }
 
     public function getValue(): string

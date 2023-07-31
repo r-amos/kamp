@@ -8,6 +8,5 @@ class AccessTokenCreated implements Event
 {
     public function __construct()
     {
-        
     }
 }

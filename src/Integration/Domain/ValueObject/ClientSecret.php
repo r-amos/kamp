@@ -7,7 +7,7 @@ namespace Kamp\Integration\Domain\ValueObject;
 use Kamp\Common\Domain\ValueObject;
 
 class ClientSecret extends ValueObject
-{    
+{
     public function __construct(private string $secret)
     {
         $this->secret = $secret;

@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Kamp\Integration\Domain;
 
+use Kamp\Integration\Domain\ValueObject\ExpiryDate;
+use Kamp\Integration\Domain\ValueObject\Token;
+use Kamp\Integration\Domain\ValueObject\UUID;
+
 class AccessToken
 {
     public function __construct(
@@ -11,26 +15,11 @@ class AccessToken
         private readonly Token $bearerToken,
         private readonly Token $refreshToken,
         private readonly ExpiryDate $expiry
-    )
-    {}
-
-    public function getIdentifier()
-    {
-        return $this->id->toString();
+    ) {
     }
-}
 
-
-class Token
-{}
-
-class  ExpiryDate {
-
-}
-
-class UUID {
-    public function toString()
+    public function getIdentifier(): string
     {
-        return '';
+        return $this->id->getValue();
     }
 }

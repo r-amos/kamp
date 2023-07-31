@@ -6,14 +6,14 @@ namespace Kamp\Integration\Domain\ValueObject;
 
 use Kamp\Common\Domain\ValueObject;
 
-class AuthorizationCode extends ValueObject
+class UUID extends ValueObject
 {
-    public function __construct(private readonly string $code)
+    public function __construct(private readonly string $uuid)
     {
     }
 
     public function getValue(): string
     {
-        return $this->code;
+        return $this->uuid;
     }
 }

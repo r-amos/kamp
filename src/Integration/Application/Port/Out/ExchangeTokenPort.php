@@ -11,7 +11,7 @@ interface ExchangeTokenPort
 {
     public function exchangeAuthorizationCodeForAccessToken(
         ClientIdentifier $clientIdentifier,
-        ClientSecret $clientSecret, 
+        ClientSecret $clientSecret,
         AuthorizationCode $authorizationCode
     ): AccessTokenCreationDTO;
 }

@@ -1,12 +1,15 @@
 <?php
 
+namespace Kamp\Integration\Adapter\Out\Persistence;
+
 use App\Models\Integration as EloquentIntegration;
+use Kamp\Integration\Adapter\Out\Persistence\EloquentAccessTokenRepository;
 use Kamp\Integration\Adapter\Out\Persistence\IntegrationRepository;
 use Kamp\Integration\Application\DTO\AccessTokenCreationDTO;
 
 class EloquentIntegrationRepository implements IntegrationRepository
 {
-    private EloquentIntegration $entity;
+    private string $entity;
 
     public function __construct(private readonly EloquentAccessTokenRepository $tokenRepository)
     {
@@ -15,8 +18,7 @@ class EloquentIntegrationRepository implements IntegrationRepository
 
     public function create(AccessTokenCreationDTO $token)
     {
-        /** @var EloquentIntegration */
-        $integration = $this->entity->make([]);
+        $integration = $this->entity::make([]);
         $integration
             ->accessTokens()
             ->save(

@@ -12,26 +12,23 @@ use Kamp\Integration\Domain\ValueObject\AuthorizationCode;
 use Kamp\Integration\Domain\ValueObject\ClientIdentifier;
 use Kamp\Integration\Domain\ValueObject\ClientSecret;
 
-class CreateAccessTokenController extends Controller
+class IntegrateAthleteWithStravaController extends Controller
 {
     public function __invoke(
         Request $request,
-        IntegrateAthleteWithStravaUseCase $handler, 
-        ClientIdentifier $clientIdentifier, 
-        ClientSecret $clientSecret
-    )
-    {
+        IntegrateAthleteWithStravaUseCase $handler,
+        string $clientIdentifier,
+        string $clientSecret
+    ) {
         $authorizationCode = new AuthorizationCode($request->get('code'));
-        
+
         $command = new IntegrateAthleteWithStravaCommand(
             $authorizationCode,
-            $clientIdentifier,
-            $clientSecret
+            new ClientIdentifier($clientIdentifier),
+            new ClientSecret($clientSecret)
         );
 
-        $uuid = $handler->handle($command);
-
-        // Map To Response
-        return $uuid;
+        // @TODO: Make Response
+        return $handler->handle($command);
     }
 }

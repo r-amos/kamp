@@ -11,11 +11,11 @@ use Kamp\Integration\Domain\ValueObject\ClientSecret;
 class IntegrateAthleteWithStravaCommand
 {
     public function __construct(
-        private AuthorizationCode $code, 
-        private ClientIdentifier $identifier, 
+        private AuthorizationCode $code,
+        private ClientIdentifier $identifier,
         private ClientSecret $secret
-    )
-    {}
+    ) {
+    }
 
     public function getAuthorizationCode(): AuthorizationCode
     {
